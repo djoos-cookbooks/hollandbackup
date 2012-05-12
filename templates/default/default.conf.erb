@@ -18,7 +18,7 @@
 
 [holland:backup]
 plugin = mysqldump
-backups-to-keep = 1
+backups-to-keep = <% if @backups_to_keep.nil? %><%= @backups_to_keep %><% else %>1<% end %>
 auto-purge-failures = yes
 purge-policy = after-backup
 estimated-size-factor = 1.0

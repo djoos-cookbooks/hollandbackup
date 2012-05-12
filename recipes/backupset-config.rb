@@ -15,6 +15,7 @@ unless backupsets.nil?
 			group "root"
 			mode 0640
 			variables(
+				:backups_to_keep => backupsets[key]['backups_to_keep'],
 				:mysql_client_user => backupsets[key]['mysql_client_user'],
 				:mysql_client_password => backupsets[key]['mysql_client_password']
 			)
