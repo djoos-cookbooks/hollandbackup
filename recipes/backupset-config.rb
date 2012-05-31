@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: chef-hollandbackup
+# Cookbook Name:: hollandbackup
 # Recipe:: backupset-config
 #
 # Copyright 2012, Escape Studios

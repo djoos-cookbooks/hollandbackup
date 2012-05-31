@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: chef-hollandbackup
+# Cookbook Name:: hollandbackup
 # Recipe:: holland-mysqldump
 #
 # Copyright 2012, Escape Studios
