@@ -21,7 +21,7 @@ case node[:platform]
 
 			if gpg_key_url
 				execute "wget -O - #{gpg_key_url} | apt-key add -" do
-					notifies :run, "execute[apt-get-update]", :immediately
+					notifies :run, "execute[hollandbackup-apt-get-update]", :immediately
 					not_if gpg_key_already_installed
 				end
 			end
@@ -35,12 +35,12 @@ case node[:platform]
 			group "root"
 			mode 0640
 			content "deb http://download.opensuse.org/repositories/home:/holland-backup/#{distro}/ ./"
-			notifies :run, "execute[apt-get-update]", :immediately
+			notifies :run, "execute[hollandbackup-apt-get-update]", :immediately
 			action :create_if_missing
 		end
 
 		#update the local package list
-		execute "apt-get-update" do
+		execute "hollandbackup-apt-get-update" do
 			command "apt-get update"
 			action :nothing
 		end
