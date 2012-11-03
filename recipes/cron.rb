@@ -2,7 +2,7 @@
 # Cookbook Name:: hollandbackup
 # Recipe:: cron
 #
-# Copyright 2012, Escape Studios
+# Copyright 2012, David Joos
 #
 
 cron "holland-backup" do

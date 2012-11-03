@@ -2,7 +2,7 @@
 # Cookbook Name:: hollandbackup
 # Recipe:: default
 #
-# Copyright 2012, Escape Studios
+# Copyright 2012, David Joos
 #
 
 case node[:platform]

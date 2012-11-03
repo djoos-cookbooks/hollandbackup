@@ -2,7 +2,7 @@
 # Cookbook Name:: hollandbackup
 # Attributes:: default
 #
-# Copyright 2012, Escape Studios
+# Copyright 2012, David Joos
 #
 
 default['hollandbackup']['distro'] = "xUbuntu_10.04"
