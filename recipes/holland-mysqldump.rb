@@ -2,7 +2,7 @@
 # Cookbook Name:: hollandbackup
 # Recipe:: holland-mysqldump
 #
-# Copyright 2012, David Joos
+# Copyright 2012-2013, David Joos
 #
 
 package "holland-mysqldump" do
