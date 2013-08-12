@@ -15,8 +15,8 @@ This cookbook doesn't have direct dependencies on other cookbooks.
 
 ## Platforms:
 
-* Ubuntu
 * Debian
+* Ubuntu
 
 Attributes
 ==========
