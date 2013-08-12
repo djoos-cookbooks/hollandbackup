@@ -32,12 +32,12 @@ Attributes
 Usage
 =====
 
-1) include `recipe[hollandbackup]` in a run list
-2) include `recipe[hollandbackup::holland-mysqldump]` to install holland-mysqldump
-3) include `recipe[hollandbackup::main-config]`
-4) include `recipe[hollandbackup::backupset-config]`
-5) include `recipe[hollandbackup::cron]` to have cron run the command periodically
-6) tweak the attributes via attributes/default.rb
+1. include `recipe[hollandbackup]` in a run list
+2. include `recipe[hollandbackup::holland-mysqldump]` to install holland-mysqldump
+3. include `recipe[hollandbackup::main-config]`
+4. include `recipe[hollandbackup::backupset-config]`
+5. include `recipe[hollandbackup::cron]` to have cron run the command periodically
+6. tweak the attributes via attributes/default.rb
 	--- OR ---
 	override the attribute on a higher level (http://wiki.opscode.com/display/chef/Attributes#Attributes-AttributesPrecedence)
 
