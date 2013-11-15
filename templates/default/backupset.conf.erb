@@ -22,18 +22,21 @@ after-backup-command = <%= @resource.after_backup_command %>
 failed-backup-command = <%= @resource.failed_backup_command %>
 <% end %>
 
-#<% unless @resource.plugin_specific.nil? %>
-#	<% if @resource.plugin_specific.respond_to?('each') %>
-#[<%= @resource.plugin %>]
-#		<% @resource.plugin_specific.each do |key, value| %>
-#			<% if value.is_a?(Hash) %>
-#<%= "#{key}" %>
-#			<% else %>
-#<%= "#{key} = #{value}" %>
-#			<% end %>
-#		<% end %>
-#	<% end %>
-#<% end %>
+<% unless @resource.plugin_specific.nil? %>
+	<% if @resource.plugin_specific.respond_to?('each') %>
+[<%= @resource.plugin %>]
+		<% @resource.plugin_specific.each do |key, value| %>
+			<% if value.is_a?(Hash) %>
+<%= "#{key}" %>
+<% value.each do |vkey, vvalue| %>
+<%= "#{vkey} = #{vvalue}" %>
+<% end %>
+			<% else %>
+<%= "#{key} = #{value}" %>
+			<% end %>
+		<% end %>
+	<% end %>
+<% end %>
 
 ## This section defines the configuration options specific to the backup
 ## plugin. In other words, the name of this section should match the name
