@@ -1,8 +1,8 @@
 #
 # Cookbook Name:: hollandbackup
-# Recipe:: default
+# Attributes:: backupsets
 #
 # Copyright 2012-2013, David Joos
 #
 
-include_recipe "hollandbackup::repository"
+default['hollandbackup']['backupsets'] = {}

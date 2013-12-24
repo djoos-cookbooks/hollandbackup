@@ -21,7 +21,7 @@ This cookbook doesn't have direct dependencies on other cookbooks.
 Attributes
 ==========
 
-* `node['hollandbackup']['distro']` - The Linux distro (Debian_5.0, Debian_Etch, xUbuntu_8.04, xUbuntu_9.04, xUbuntu_9.10, xUbuntu_10.04, xUbuntu_10.10), defaults to "xUbuntu_10.04"
+* `node['hollandbackup']['distro']` - The Linux distro (Debian_5.0, Debian_Etch, xUbuntu_8.04, xUbuntu_9.04, xUbuntu_9.10, xUbuntu_10.04, xUbuntu_10.10), defaults to "xUbuntu_12.04"
 * `node['hollandbackup']['backupsets']` - A list of backupsets
 * `node['hollandbackup']['cron']['minute']` - The cron job's minute value
 * `node['hollandbackup']['cron']['hour']` - The cron job's hour value
