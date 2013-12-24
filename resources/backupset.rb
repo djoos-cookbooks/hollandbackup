@@ -19,7 +19,7 @@ attribute :after_backup_command, :kind_of => String, :default => nil
 attribute :failed_backup_command, :kind_of => String, :default => nil
 
 #backupset-specific plugin configuration
-attribute :plugin_specific, :kind_of => Hash, :default => {}
+attribute :mysqldump, :kind_of => Hash, :default => {}
 
 def initialize(*args)
     super

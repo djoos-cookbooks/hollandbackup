@@ -7,6 +7,8 @@
 
 #TEMP
 include_recipe "hollandbackup::repository"
+
+include_recipe "hollandbackup::mysqldump"
+
 include_recipe "hollandbackup::main"
 include_recipe "hollandbackup::backupsets"
-include_recipe "hollandbackup::mysqldump"

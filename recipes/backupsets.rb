@@ -18,7 +18,7 @@ unless backupsets.nil?
             before_backup_command backupsets[key]['before_backup_command']
             after_backup_command  backupsets[key]['after_backup_command']
             failed_backup_command backupsets[key]['failed_backup_command']
-			plugin_specific		  backupsets[key]['plugin_specific']
+            mysqldump             backupsets[key]['mysqldump']
         end
     end
 end

@@ -11,7 +11,7 @@ package "holland-mysqldump" do
 end
 
 hollandbackup_mysqldump "holland-configure-mysqldump-provider" do
-	#[mysqldump]
+    #[mysqldump]
     mysql_binpath         node['hollandbackup']['mysqldump']['mysql_binpath']
     lock_method           node['hollandbackup']['mysqldump']['lock_method']
     exclude_invalid_views node['hollandbackup']['mysqldump']['exclude_invalid_views']
