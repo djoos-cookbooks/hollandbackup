@@ -2,7 +2,7 @@
 # Cookbook Name:: hollandbackup
 # Provider:: mysqldump
 #
-# Copyright 2012-2013, David Joos
+# Copyright 2012-2014, David Joos
 #
 
 def whyrun_supported?

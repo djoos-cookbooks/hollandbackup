@@ -4,14 +4,19 @@ Description
 This cookbook provides an easy way to install Holland Backup.
 
 More information?
-http://hollandbackup.org
+* http://hollandbackup.org
 
 Requirements
 ============
 
 ## Cookbooks:
 
-This cookbook doesn't have direct dependencies on other cookbooks.
+This cookbook recommends on the following cookbooks:
+
+* mysql
+
+### Depending on your setup, these recommended cookbooks are actual dependencies (depends):
+* Installing the mysqldump provider? You'll need the mysql cookbook to be available.
 
 ## Platforms:
 
@@ -21,25 +26,72 @@ This cookbook doesn't have direct dependencies on other cookbooks.
 Attributes
 ==========
 
-* `node['hollandbackup']['distro']` - The Linux distro (Debian_5.0, Debian_Etch, xUbuntu_8.04, xUbuntu_9.04, xUbuntu_9.10, xUbuntu_10.04, xUbuntu_10.10), defaults to "xUbuntu_12.04"
+## repository.rb:
+
+* `node['hollandbackup']['repository']['distro']` - The Linux distro, defaults to "xUbuntu_12.04"
+
+## mysqldump.rb: (see http://docs.hollandbackup.org/provider_configs/mysqldump.html)
+
+### general
+* `node['hollandbackup']['mysqldump']['mysql_binpath']` - see Holland Backup mysqldump-docs, defaults to nil
+* `node['hollandbackup']['mysqldump']['lock_method']` - see Holland Backup mysqldump-docs, defaults to nil
+* `node['hollandbackup']['mysqldump']['exclude_invalid_views']` - see Holland Backup mysqldump-docs, defaults to nil
+* `node['hollandbackup']['mysqldump']['dump_routines']` - see Holland Backup mysqldump-docs, defaults to nil
+* `node['hollandbackup']['mysqldump']['dump_events']` - see Holland Backup mysqldump-docs, defaults to nil
+* `node['hollandbackup']['mysqldump']['stop_slave']` - see Holland Backup mysqldump-docs, defaults to nil
+* `node['hollandbackup']['mysqldump']['bin_log_position']` - see Holland Backup mysqldump-docs, defaults to nil
+* `node['hollandbackup']['mysqldump']['flush_logs']` - see Holland Backup mysqldump-docs, defaults to nil
+* `node['hollandbackup']['mysqldump']['file_per_database']` - see Holland Backup mysqldump-docs, defaults to nil
+* `node['hollandbackup']['mysqldump']['additional_options']` - see Holland Backup mysqldump-docs, defaults to nil
+* `node['hollandbackup']['mysqldump']['extra_defaults']` - see Holland Backup mysqldump-docs, defaults to nil
+* `node['hollandbackup']['mysqldump']['estimate_method']` - see Holland Backup mysqldump-docs, defaults to nil
+
+### database and table filtering
+* `node['hollandbackup']['mysqldump']['filtering']['databases']` - see Holland Backup mysqldump-docs, defaults to nil
+* `node['hollandbackup']['mysqldump']['filtering']['exclude_databases']` - see Holland Backup mysqldump-docs, defaults to nil
+* `node['hollandbackup']['mysqldump']['filtering']['tables']` - see Holland Backup mysqldump-docs, defaults to nil
+* `node['hollandbackup']['mysqldump']['filtering']['exclude_tables']` - see Holland Backup mysqldump-docs, defaults to nil
+
+### [compression]
+* `node['hollandbackup']['mysqldump']['compresssion']['method']` - see Holland Backup mysqldump-docs, defaults to nil
+* `node['hollandbackup']['mysqldump']['compresssion']['inline']` - see Holland Backup mysqldump-docs, defaults to nil
+* `node['hollandbackup']['mysqldump']['compresssion']['level']` - see Holland Backup mysqldump-docs, defaults to nil
+* `node['hollandbackup']['mysqldump']['compresssion']['bin_path']` - see Holland Backup mysqldump-docs, defaults to nil
+
+#### [mysql:client]
+* `node['hollandbackup']['mysqldump']['mysql_connection']['defaults_extra_file']` - see Holland Backup mysqldump-docs, defaults to nil
+* `node['hollandbackup']['mysqldump']['mysql_connection']['user']` - see Holland Backup mysqldump-docs, defaults to nil
+* `node['hollandbackup']['mysqldump']['mysql_connection']['password']` - see Holland Backup mysqldump-docs, defaults to nil
+* `node['hollandbackup']['mysqldump']['mysql_connection']['socket']` - see Holland Backup mysqldump-docs, defaults to nil
+* `node['hollandbackup']['mysqldump']['mysql_connection']['host']` - see Holland Backup mysqldump-docs, defaults to nil
+* `node['hollandbackup']['mysqldump']['mysql_connection']['port']` - see Holland Backup mysqldump-docs, defaults to nil
+
+## main.rb: (see http://docs.hollandbackup.org/config.html#holland-conf-main-config)
+### [holland]
+* `node['hollandbackup']['main']['plugin_dirs']` - see Holland Backup main config-docs, defaults to nil
+* `node['hollandbackup']['main']['backup_directory']` - see Holland Backup main config-docs, defaults to nil
+* `node['hollandbackup']['main']['backupsets']` - see Holland Backup main config-docs, defaults to nil
+* `node['hollandbackup']['main']['umask']` - see Holland Backup main config-docs, defaults to nil
+* `node['hollandbackup']['main']['path']` - see Holland Backup main config-docs, defaults to nil
+
+### [logging]
+* `node['hollandbackup']['main']['filename']` - see Holland Backup main config-docs, defaults to nil
+* `node['hollandbackup']['main']['level']` - see Holland Backup main config-docs, defaults to nil
+
+## backupsets.rb:
+
 * `node['hollandbackup']['backupsets']` - A list of backupsets
-* `node['hollandbackup']['cron']['minute']` - The cron job's minute value
-* `node['hollandbackup']['cron']['hour']` - The cron job's hour value
-* `node['hollandbackup']['cron']['day']` - The cron job's day value
-* `node['hollandbackup']['cron']['month']` - The cron job's month value
-* `node['hollandbackup']['cron']['weekday']` - The cron job's weekday value
 
 Usage
 =====
 
 1. include `recipe[hollandbackup]` in a run list
-2. include `recipe[hollandbackup::holland-mysqldump]` to install holland-mysqldump
-3. include `recipe[hollandbackup::main-config]`
-4. include `recipe[hollandbackup::backupset-config]`
-5. include `recipe[hollandbackup::cron]` to have cron run the command periodically
-6. tweak the attributes via attributes/default.rb
-	--- OR ---
-	override the attribute on a higher level (http://wiki.opscode.com/display/chef/Attributes#Attributes-AttributesPrecedence)
+2. include `recipe[hollandbackup::mysqldump]`
+3. include `recipe[hollandbackup::main]`
+4. include `recipe[hollandbackup::backupsets]`
+5. tweak the attributes via attributes/default.rb
+    --- OR ---
+    override the attribute on a higher level (http://wiki.opscode.com/display/chef/Attributes#Attributes-AttributesPrecedence)
 
 References
 ==========
@@ -56,7 +108,7 @@ Author: Escape Studios Development <dev@escapestudios.com>
 Copyright: 2012, Escape Studios
 
 Author: David Joos <development@davidjoos.com>
-Copyright: 2012-2013, David Joos
+Copyright: 2012-2014, David Joos
 
 Unless otherwise noted, all files are released under the MIT license,
 possible exceptions will contain licensing information in them.

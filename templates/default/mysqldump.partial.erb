@@ -1,16 +1,16 @@
 <% unless
-	@mysql_binpath.nil? &&
-	@lock_method.nil? &&
-	@exclude_invalid_views.nil? &&
-	@dump_routines.nil? &&
-	@dump_events.nil? &&
-	@stop_slave.nil? &&
-	@bin_log_position.nil? &&
-	@flush_logs.nil? &&
-	@file_per_database.nil? &&
-	@additional_options.nil? &&
-	@extra_defaults.nil? &&
-	@estimate_method.nil?
+    @mysql_binpath.nil? &&
+    @lock_method.nil? &&
+    @exclude_invalid_views.nil? &&
+    @dump_routines.nil? &&
+    @dump_events.nil? &&
+    @stop_slave.nil? &&
+    @bin_log_position.nil? &&
+    @flush_logs.nil? &&
+    @file_per_database.nil? &&
+    @additional_options.nil? &&
+    @extra_defaults.nil? &&
+    @estimate_method.nil?
 %>
 [mysqldump]
 <% unless @mysql_binpath.nil? %>
@@ -51,10 +51,10 @@ estimate-method = <%= @estimate_method %>
 <% end %>
 <% end %>
 <% unless
-	@databases.nil? &&
-	@exclude_databases.nil? &&
-	@tables.nil? &&
-	@exclude_tables.nil?
+    @databases.nil? &&
+    @exclude_databases.nil? &&
+    @tables.nil? &&
+    @exclude_tables.nil?
 %>
 # database and table filtering
 <% unless @databases.nil? %>
@@ -71,10 +71,10 @@ exclude-tables = <%= @exclude_tables %>
 <% end %>
 <% end %>
 <% unless
-	@method.nil? &&
-	@inline.nil? &&
-	@level.nil? &&
-	@bin_path.nil?
+    @method.nil? &&
+    @inline.nil? &&
+    @level.nil? &&
+    @bin_path.nil?
 %>
 [compression]
 <% unless @method.nil? %>
@@ -92,12 +92,12 @@ bin-path = <%= @bin_path %>
 <% end %>
 
 <% unless
-	@defaults_extra_file.nil? &&
-	@user.nil? &&
-	@password.nil? &&
-	@socket.nil? &&
-	@host.nil? &&
-	@port.nil?
+    @defaults_extra_file.nil? &&
+    @user.nil? &&
+    @password.nil? &&
+    @socket.nil? &&
+    @host.nil? &&
+    @port.nil?
 %>
 [mysql:client]
 <% unless @defaults_extra_file.nil? %>

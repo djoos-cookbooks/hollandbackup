@@ -2,11 +2,11 @@
 # Cookbook Name:: hollandbackup
 # Recipe:: main-config
 #
-# Copyright 2012-2013, David Joos
+# Copyright 2012-2014, David Joos
 #
 
 hollandbackup_main "hollandbackup-main-config" do
-	#[holland]
+    #[holland]
     plugin_dirs      node['hollandbackup']['main']['plugin_dirs']
     backup_directory node['hollandbackup']['main']['backup_directory']
     backupsets       node['hollandbackup']['main']['backupsets']

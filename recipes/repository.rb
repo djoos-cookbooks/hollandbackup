@@ -2,13 +2,13 @@
 # Cookbook Name:: hollandbackup
 # Recipe:: repository
 #
-# Copyright 2012-2013, David Joos
+# Copyright 2012-2014, David Joos
 #
 
 case node[:platform]
     when "debian", "ubuntu"
         #trust the hollandbackup GPG key
-        distro = node[:hollandbackup][:distro]
+        distro = node['hollandbackup']['repository']['distro']
         gpg_key_url = "http://download.opensuse.org/repositories/home:/holland-backup/#{distro}/Release.key"
 
         execute "hollandbackup-add-gpg-key" do
@@ -18,9 +18,7 @@ case node[:platform]
         end
 
         #configure the hollandbackup apt repository
-        local_file = "/etc/apt/sources.list.d/holland.list"
-
-        file "#{local_file}" do
+        file "/etc/apt/sources.list.d/holland.list" do
             owner "root"
             group "root"
             mode 0644

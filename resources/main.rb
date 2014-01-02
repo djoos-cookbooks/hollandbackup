@@ -2,7 +2,7 @@
 # Cookbook Name:: hollandbackup
 # Resource:: main
 #
-# Copyright 2012-2013, David Joos
+# Copyright 2012-2014, David Joos
 #
 
 actions :configure
