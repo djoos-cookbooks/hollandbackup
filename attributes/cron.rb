@@ -10,4 +10,4 @@ default['hollandbackup']['cron']['month'] = '*'
 default['hollandbackup']['cron']['weekday'] = '*'
 
 default['hollandbackup']['cron']['user'] = 'root'
-default['hollandbackup']['cron']['command'] = 'holland -q backup'
+default['hollandbackup']['cron']['command'] = '/usr/sbin/holland -q backup'
