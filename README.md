@@ -11,6 +11,10 @@ Requirements
 
 ## Cookbooks:
 
+This cookbook depends on the following cookbooks:
+
+* cron
+
 This cookbook recommends on the following cookbooks:
 
 * mysql
@@ -22,15 +26,18 @@ This cookbook recommends on the following cookbooks:
 
 * Debian
 * Ubuntu
+* CentOS
+* RHEL
 
 Attributes
 ==========
 
-## repository.rb:
+### repository.rb:
 
-* `node['hollandbackup']['repository']['distro']` - The Linux distro, defaults to "xUbuntu_12.04"
+* `node['hollandbackup']['repository']['distro']` - The Linux distro to use, check the [openSUSE repositories](http://download.opensuse.org/repositories/home:/holland-backup/) for the proper name for your distro
 
-## mysqldump.rb: (see http://docs.hollandbackup.org/provider_configs/mysqldump.html)
+### mysqldump.rb:
+* See http://docs.hollandbackup.org/provider_configs/mysqldump.html
 
 ### general
 * `node['hollandbackup']['mysqldump']['mysql_binpath']` - see Holland Backup mysqldump-docs, defaults to nil
@@ -52,7 +59,7 @@ Attributes
 * `node['hollandbackup']['mysqldump']['filtering']['tables']` - see Holland Backup mysqldump-docs, defaults to nil
 * `node['hollandbackup']['mysqldump']['filtering']['exclude_tables']` - see Holland Backup mysqldump-docs, defaults to nil
 
-### [compression]
+#### [compression]
 * `node['hollandbackup']['mysqldump']['compresssion']['method']` - see Holland Backup mysqldump-docs, defaults to nil
 * `node['hollandbackup']['mysqldump']['compresssion']['inline']` - see Holland Backup mysqldump-docs, defaults to nil
 * `node['hollandbackup']['mysqldump']['compresssion']['level']` - see Holland Backup mysqldump-docs, defaults to nil
@@ -66,21 +73,33 @@ Attributes
 * `node['hollandbackup']['mysqldump']['mysql_connection']['host']` - see Holland Backup mysqldump-docs, defaults to nil
 * `node['hollandbackup']['mysqldump']['mysql_connection']['port']` - see Holland Backup mysqldump-docs, defaults to nil
 
-## main.rb: (see http://docs.hollandbackup.org/config.html#holland-conf-main-config)
-### [holland]
+### main.rb:
+* See http://docs.hollandbackup.org/config.html#holland-conf-main-config
+
+#### [holland]
 * `node['hollandbackup']['main']['plugin_dirs']` - see Holland Backup main config-docs, defaults to nil
 * `node['hollandbackup']['main']['backup_directory']` - see Holland Backup main config-docs, defaults to nil
 * `node['hollandbackup']['main']['backupsets']` - see Holland Backup main config-docs, defaults to nil
 * `node['hollandbackup']['main']['umask']` - see Holland Backup main config-docs, defaults to nil
 * `node['hollandbackup']['main']['path']` - see Holland Backup main config-docs, defaults to nil
 
-### [logging]
+#### [logging]
 * `node['hollandbackup']['main']['filename']` - see Holland Backup main config-docs, defaults to nil
 * `node['hollandbackup']['main']['level']` - see Holland Backup main config-docs, defaults to nil
 
-## backupsets.rb:
+### backupsets.rb:
 
 * `node['hollandbackup']['backupsets']` - A list of backupsets
+
+### cron.rb:
+The `hollandbackup::cron` recipe leverages the [cron lwrp](https://github.com/opscode-cookbooks/cron#resources-and-providers):
+* `node['hollandbackup']['cron']['minute']` - Minute to run hollandbackup, defaults to `0`
+* `node['hollandbackup']['cron']['hour']` - Hour to run hollandbackup, defaults to `3`
+* `node['hollandbackup']['cron']['day']` - Day to run hollandbackup, defaults to `*`
+* `node['hollandbackup']['cron']['month']` - Month to run hollandbackup, defaults to `*`
+* `node['hollandbackup']['cron']['weekday']` - Weekday to run hollandbackup, defaults to `*`
+* `node['hollandbackup']['cron']['user']` - User to run backup as, defaults to `root`
+* `node['hollandbackup']['cron']['command']` - Command to run during backup, defaults to `holland -q backup`
 
 Usage
 =====
@@ -92,6 +111,8 @@ Usage
 5. tweak the attributes via attributes/default.rb
     --- OR ---
     override the attribute on a higher level (http://wiki.opscode.com/display/chef/Attributes#Attributes-AttributesPrecedence)
+
+Optionally add `recipe[hollandbackup::cron]` to setup a cron job to run backups.
 
 References
 ==========

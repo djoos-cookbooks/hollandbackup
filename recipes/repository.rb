@@ -32,4 +32,19 @@ case node[:platform]
             command "apt-get update"
             action :nothing
         end
+    when 'centos', 'rhel'
+        distro = node['hollandbackup']['repository']['distro']
+
+        package 'yum-utils'
+
+        execute "hollandbackup-yum-repo-setup" do
+            command "yum-config-manager --add-repo http://download.opensuse.org/repositories/home:/holland-backup/#{distro}/home:holland-backup.repo"
+            notifies :run, "execute[hollandbackup-yum-makecache]", :immediately
+        end
+
+        #update the local package list
+        execute "hollandbackup-yum-makecache" do
+            command "yum makecache"
+            action :nothing
+        end
 end
