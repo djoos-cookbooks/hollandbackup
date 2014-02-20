@@ -9,7 +9,10 @@ include_recipe "mysql::client"
 
 package "holland-mysqldump" do
     action :upgrade
-    options "--force-yes"
+    case node['platform_family']
+    when 'debian'
+        options "--force-yes"
+    end
 end
 
 hollandbackup_mysqldump "holland-configure-mysqldump-provider" do

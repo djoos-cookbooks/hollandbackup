@@ -26,13 +26,15 @@ This cookbook recommends on the following cookbooks:
 
 * Debian
 * Ubuntu
+* CentOS
+* RHEL
 
 Attributes
 ==========
 
 ### repository.rb:
 
-* `node['hollandbackup']['repository']['distro']` - The Linux distro, defaults to "xUbuntu_12.04"
+* `node['hollandbackup']['repository']['distro']` - The Linux distro to use, check the [openSUSE repositories](http://download.opensuse.org/repositories/home:/holland-backup/) for the proper name for your distro
 
 ### mysqldump.rb:
 * See http://docs.hollandbackup.org/provider_configs/mysqldump.html
