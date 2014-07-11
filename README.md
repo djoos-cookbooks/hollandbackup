@@ -22,6 +22,8 @@ This cookbook recommends on the following cookbooks:
 
 * Debian
 * Ubuntu
+* CentOS
+* RHEL
 
 Attributes
 ==========
