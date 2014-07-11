@@ -5,14 +5,18 @@
 # Copyright 2012-2014, David Joos
 #
 
-case node[:platform]
+case node['platform']
 when 'debian', 'ubuntu'
   # trust the hollandbackup GPG key
   distro = node['hollandbackup']['repository']['distro']
   gpg_key_url = "http://download.opensuse.org/repositories/home:/holland-backup/#{distro}/Release.key"
 
+  remote_file "#{Chef::Config[:file_cache_path]}/hollandkey" do
+    source gpg_key_url
+  end
+
   execute 'hollandbackup-add-gpg-key' do
-    command "wget -O - #{gpg_key_url} | apt-key add -"
+    command "apt-key add #{Chef::Config[:file_cache_path]}/hollandkey"
     notifies :run, 'execute[hollandbackup-apt-get-update]', :immediately
     not_if "apt-key list | grep #{distro}"
   end

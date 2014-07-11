@@ -9,7 +9,7 @@ backupsets = node['hollandbackup']['backupsets']
 
 unless backupsets.nil?
   backupsets.keys.each do |key|
-    hollandbackup_backupset "#{key}" do
+    hollandbackup_backupset key do
       plugin                backupsets[key]['plugin']
       backups_to_keep       backupsets[key]['backups_to_keep']
       estimated_size_factor backupsets[key]['estimated_size_factor']
