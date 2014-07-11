@@ -8,7 +8,6 @@ end
 
 describe file('/etc/holland/holland.conf') do
   it { should be_file }
-  its(:content) { should match /backupsets = default/ }
 end
 
 describe package('holland') do

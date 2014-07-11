@@ -6,19 +6,19 @@
 #
 
 def whyrun_supported?
-    true
+  true
 end
 
 action :configure do
-    Chef::Log.debug "PROVIDER: mysqldump.conf"
+  Chef::Log.debug 'PROVIDER: mysqldump.conf'
 
-    template "/etc/holland/providers/mysqldump.conf" do
-        source "mysqldump.conf.erb"
-        owner "root"
-        group "root"
-        mode 0644
-        variables(
-            :resource => new_resource
-        )
-    end
+  template '/etc/holland/providers/mysqldump.conf' do
+    source 'mysqldump.conf.erb'
+    owner 'root'
+    group 'root'
+    mode 0644
+    variables(
+        resource: new_resource
+    )
+  end
 end

@@ -5,4 +5,4 @@
 # Copyright 2012-2014, David Joos
 #
 
-include_recipe "hollandbackup::repository"
+include_recipe 'hollandbackup::repository'

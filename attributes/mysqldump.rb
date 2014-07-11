@@ -18,19 +18,19 @@ default['hollandbackup']['mysqldump']['additional_options'] = nil
 default['hollandbackup']['mysqldump']['extra_defaults'] = nil
 default['hollandbackup']['mysqldump']['estimate_method'] = nil
 
-#database and table filtering
+# database and table filtering
 default['hollandbackup']['mysqldump']['filtering']['databases'] = nil
 default['hollandbackup']['mysqldump']['filtering']['exclude_databases'] = nil
 default['hollandbackup']['mysqldump']['filtering']['tables'] = nil
 default['hollandbackup']['mysqldump']['filtering']['exclude_tables'] = nil
 
-#[compression]
+# [compression]
 default['hollandbackup']['mysqldump']['compresssion']['method'] = nil
 default['hollandbackup']['mysqldump']['compresssion']['inline'] = nil
 default['hollandbackup']['mysqldump']['compresssion']['level'] = nil
 default['hollandbackup']['mysqldump']['compresssion']['bin_path'] = nil
 
-#[mysql:client]
+# [mysql:client]
 default['hollandbackup']['mysqldump']['mysql_connection']['defaults_extra_file'] = nil
 default['hollandbackup']['mysqldump']['mysql_connection']['user'] = nil
 default['hollandbackup']['mysqldump']['mysql_connection']['password'] = nil
