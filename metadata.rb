@@ -1,6 +1,6 @@
 name 'hollandbackup'
 maintainer 'David Joos'
-maintainer_email 'development@davidjoos.com'
+maintainer_email 'david.joos@escapestudios.com'
 license 'MIT'
 description 'Installs/Configures hollandbackup'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
