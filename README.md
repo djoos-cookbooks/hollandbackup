@@ -105,7 +105,7 @@ References
 License and Authors
 ===================
 
-Author: David Joos <david@escapestudios.com>
+Author: David Joos <david.joos@escapestudios.com>
 Author: Escape Studios Development <dev@escapestudios.com>
 Copyright: 2012, Escape Studios
 

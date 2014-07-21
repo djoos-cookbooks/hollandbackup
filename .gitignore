@@ -1,2 +1,15 @@
-.kitchen/
+*~
+*#
+.#*
+\#*#
+.*.sw[a-z]
+*.un~
+
+Berksfile.lock
+Gemfile.lock
+.vagrant
+Vagrantfile
+.bundle
+.coverage
+.kitchen
 .kitchen.local.yml

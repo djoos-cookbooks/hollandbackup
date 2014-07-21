@@ -2,7 +2,7 @@
 # Cookbook Name:: hollandbackup
 # Attributes:: mysqldump
 #
-# Copyright 2012-2014, David Joos
+# Copyright 2012-2014, Escape Studios
 #
 
 default['hollandbackup']['mysqldump']['mysql_binpath'] = nil

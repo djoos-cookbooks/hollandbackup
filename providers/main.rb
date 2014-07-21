@@ -2,7 +2,7 @@
 # Cookbook Name:: hollandbackup
 # Provider:: main
 #
-# Copyright 2012-2014, David Joos
+# Copyright 2012-2014, Escape Studios
 #
 
 def whyrun_supported?
@@ -18,7 +18,7 @@ action :configure do
     group 'root'
     mode 0644
     variables(
-        resource: new_resource
+        :resource => new_resource
     )
   end
   new_resource.updated_by_last_action(true)
