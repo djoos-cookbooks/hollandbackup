@@ -1,3 +1,5 @@
+ [![Build Status](https://travis-ci.org/escapestudios-cookbooks/hollandbackup.png)](https://travis-ci.org/escapestudios-cookbooks/hollandbackup)
+
 Description
 ===========
 
