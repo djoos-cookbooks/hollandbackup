@@ -18,7 +18,7 @@ action :configure do
     group 'root'
     mode 0644
     variables(
-        :resource => new_resource
+      :resource => new_resource
     )
   end
   new_resource.updated_by_last_action(true)
