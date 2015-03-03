@@ -10,7 +10,6 @@ include_recipe 'chef-sugar'
 
 package 'holland-mysqldump' do
   action :upgrade
-  options '--force-yes' if debian?
 end
 
 hollandbackup_mysqldump 'holland-configure-mysqldump-provider' do
