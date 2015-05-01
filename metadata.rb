@@ -13,7 +13,8 @@ end
 depends 'yum-epel'
 depends 'apt'
 depends 'chef-sugar'
-depends 'mysql'
+depends 'mysql', '>= 6.0'
+depends 'poise'
 
 recipe 'hollandbackup', 'Adds the Holland Backup repository.'
 recipe 'hollandbackup::repository', 'Adds the Holland Backup repository.'

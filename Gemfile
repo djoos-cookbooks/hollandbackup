@@ -16,8 +16,12 @@ group :unit do
   gem 'rspec-expectations', '~> 2.14.0'
 end
 
-group :integration do
-  gem 'test-kitchen', '~> 1.2'
-  gem 'kitchen-vagrant', '~> 0.11'
-  gem 'serverspec', '~> 1.0'
+
+group :kitchen_common do
+  gem 'test-kitchen'
+end
+
+group :kitchen_vagrant do
+  gem 'kitchen-vagrant', '<= 0.15.0'
+  gem 'vagrant-wrapper'
 end

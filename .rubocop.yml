@@ -21,3 +21,10 @@ UselessAssignment:
 
 MethodLength:
   Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+AllCops:
+  Exclude:
+    - '.kitchen/*'
