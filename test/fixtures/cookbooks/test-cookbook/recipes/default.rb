@@ -1,5 +1,5 @@
 mysql_service 'default' do
-  version '5.7'
+  version '5.5'
   action [:create, :start]
 end
 
@@ -26,15 +26,3 @@ hollandbackup_backupset '/etc/holland/backupsets/default.conf' do
     filer_per_database 'yes'
   end
 end
-
-
-#my_opts = {
-#    bin_log_position: 'yes',
-#    file_per_database: 'yes',
-#    password: 'ilikerandompasswords',
-#    socket: '/var/run/mysql-default/mysqld.sock',
-#    host: '127.0.0.1',
-#    port: '3306' }
-#hollandbackup_mysqldump '/etc/holland/plugins/mysqldump.conf' do
-#  conf_options my_opts
-#end

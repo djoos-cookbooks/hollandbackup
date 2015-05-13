@@ -1,5 +1,3 @@
-require 'chef/provider/lwrp_base'
-
 class Chef
   class Provider::HollandbackupMysqldump < Provider
     include Poise

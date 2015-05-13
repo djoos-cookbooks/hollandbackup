@@ -16,7 +16,6 @@ group :unit do
   gem 'rspec-expectations', '~> 2.14.0'
 end
 
-
 group :kitchen_common do
   gem 'test-kitchen'
 end
