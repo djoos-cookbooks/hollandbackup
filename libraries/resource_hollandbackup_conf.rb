@@ -6,6 +6,7 @@ class Chef
 
     # holland.conf
     attribute(:path, :kind_of => String, :name_attribute => true)
+    attribute(:source, :kind_of => String, :default => 'holland.conf.erb')
     attribute(:owner, :kind_of => String, :default => 'root')
     attribute(:group, :kind_of => String, :default => 'root')
     attribute(:mode, :kind_of => String, :default => '0644')

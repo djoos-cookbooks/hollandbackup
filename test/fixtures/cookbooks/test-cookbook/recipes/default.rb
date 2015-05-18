@@ -5,9 +5,16 @@ end
 
 mysql_client 'default'
 
-hollandbackup 'Install and configure holland' do
+hollandbackup 'Install holland' do
   action :install
   additional_packages ['holland-mysqldump']
+end
+
+hollandbackup_conf 'configure holland' do
+  conf do
+    backup_directory '/var/spool/holland'
+    level 'debug'
+  end
 end
 
 hollandbackup_mysqldump '/etc/holland/providers/mysqldump.conf' do
