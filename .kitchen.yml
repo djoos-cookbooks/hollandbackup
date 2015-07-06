@@ -11,15 +11,20 @@ platforms:
   - name: ubuntu-12.04
     run_list:
     - recipe[apt]
-  - name: centos-6.4
+  - name: ubuntu-14.04
+    run_list:
+    - recipe[apt]
+  - name: centos-6.6
     run_list:
     - recipe[yum]
 
 suites:
+  # Test the installation of holland leveraging the library
   - name: default
     run_list:
-      - recipe[hollandbackup::default]
-      - recipe[hollandbackup::mysqldump]
-      - recipe[hollandbackup::main]
-      - recipe[hollandbackup::backupsets]
-    attributes:
+    - recipe[test-cookbook::default]
+
+  # Test the installation and then removal of holland leveraging the library
+  - name: uninstall
+    run_list:
+    - recipe[test-cookbook::install_uninstall]

@@ -21,3 +21,16 @@ UselessAssignment:
 
 MethodLength:
   Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+AllCops:
+  Exclude:
+    - '.kitchen/*'
