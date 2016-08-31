@@ -2,7 +2,7 @@
 # Cookbook Name:: hollandbackup
 # Resource:: mysqldump
 #
-# Copyright 2012-2014, Escape Studios
+# Copyright (c) 2016, David Joos
 #
 
 actions :configure

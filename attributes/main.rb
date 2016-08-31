@@ -2,7 +2,7 @@
 # Cookbook Name:: hollandbackup
 # Attributes:: main
 #
-# Copyright 2012-2014, Escape Studios
+# Copyright (c) 2016, David Joos
 #
 
 default['hollandbackup']['main']['plugin_dirs'] = nil

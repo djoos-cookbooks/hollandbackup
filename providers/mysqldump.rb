@@ -2,8 +2,10 @@
 # Cookbook Name:: hollandbackup
 # Provider:: mysqldump
 #
-# Copyright 2012-2014, Escape Studios
+# Copyright (c) 2016, David Joos
 #
+
+use_inline_resources if defined?(use_inline_resources)
 
 def whyrun_supported?
   true

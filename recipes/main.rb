@@ -2,7 +2,7 @@
 # Cookbook Name:: hollandbackup
 # Recipe:: main-config
 #
-# Copyright 2012-2014, Escape Studios
+# Copyright (c) 2016, David Joos
 #
 
 hollandbackup_main 'hollandbackup-main-config' do

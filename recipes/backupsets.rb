@@ -2,7 +2,7 @@
 # Cookbook Name:: hollandbackup
 # Recipe:: backupset-config
 #
-# Copyright 2012-2014, Escape Studios
+# Copyright (c) 2016, David Joos
 #
 
 backupsets = node['hollandbackup']['backupsets']

@@ -1,17 +1,17 @@
- [![Build Status](https://travis-ci.org/escapestudios-cookbooks/hollandbackup.png)](https://travis-ci.org/escapestudios-cookbooks/hollandbackup)
+[![Build Status](https://travis-ci.org/djoos-cookbooks/hollandbackup.png)](https://travis-ci.org/djoos-cookbooks/hollandbackup)
 
-Description
-===========
+# hollandbackup cookbook
+
+## Description
 
 This cookbook provides an easy way to install Holland Backup.
 
 More information?
 * http://hollandbackup.org
 
-Requirements
-============
+## Requirements
 
-## Cookbooks:
+### Cookbooks:
 
 This cookbook recommends on the following cookbooks:
 
@@ -20,23 +20,22 @@ This cookbook recommends on the following cookbooks:
 ### Depending on your setup, these recommended cookbooks are actual dependencies (depends):
 * Installing the mysqldump provider? You'll need the mysql cookbook to be available.
 
-## Platforms:
+### Platforms:
 
 * Debian
 * Ubuntu
 * CentOS
 * RHEL
 
-Attributes
-==========
+## Attributes
 
-## repository.rb:
+### repository.rb:
 
 * `node['hollandbackup']['repository']['distro']` - The Linux distro, defaults to "xUbuntu_12.04"
 
-## mysqldump.rb: (see http://docs.hollandbackup.org/provider_configs/mysqldump.html)
+### mysqldump.rb: (see http://docs.hollandbackup.org/provider_configs/mysqldump.html)
 
-### general
+#### general
 * `node['hollandbackup']['mysqldump']['mysql_binpath']` - see Holland Backup mysqldump-docs, defaults to nil
 * `node['hollandbackup']['mysqldump']['lock_method']` - see Holland Backup mysqldump-docs, defaults to nil
 * `node['hollandbackup']['mysqldump']['exclude_invalid_views']` - see Holland Backup mysqldump-docs, defaults to nil
@@ -50,7 +49,7 @@ Attributes
 * `node['hollandbackup']['mysqldump']['extra_defaults']` - see Holland Backup mysqldump-docs, defaults to nil
 * `node['hollandbackup']['mysqldump']['estimate_method']` - see Holland Backup mysqldump-docs, defaults to nil
 
-### database and table filtering
+#### database and table filtering
 * `node['hollandbackup']['mysqldump']['filtering']['databases']` - see Holland Backup mysqldump-docs, defaults to nil
 * `node['hollandbackup']['mysqldump']['filtering']['exclude_databases']` - see Holland Backup mysqldump-docs, defaults to nil
 * `node['hollandbackup']['mysqldump']['filtering']['tables']` - see Holland Backup mysqldump-docs, defaults to nil
@@ -70,46 +69,46 @@ Attributes
 * `node['hollandbackup']['mysqldump']['mysql_connection']['host']` - see Holland Backup mysqldump-docs, defaults to nil
 * `node['hollandbackup']['mysqldump']['mysql_connection']['port']` - see Holland Backup mysqldump-docs, defaults to nil
 
-## main.rb: (see http://docs.hollandbackup.org/config.html#holland-conf-main-config)
-### [holland]
+### main.rb: (see http://docs.hollandbackup.org/config.html#holland-conf-main-config)
+#### [holland]
 * `node['hollandbackup']['main']['plugin_dirs']` - see Holland Backup main config-docs, defaults to nil
 * `node['hollandbackup']['main']['backup_directory']` - see Holland Backup main config-docs, defaults to nil
 * `node['hollandbackup']['main']['backupsets']` - see Holland Backup main config-docs, defaults to nil
 * `node['hollandbackup']['main']['umask']` - see Holland Backup main config-docs, defaults to nil
 * `node['hollandbackup']['main']['path']` - see Holland Backup main config-docs, defaults to nil
 
-### [logging]
+#### [logging]
 * `node['hollandbackup']['main']['filename']` - see Holland Backup main config-docs, defaults to nil
 * `node['hollandbackup']['main']['level']` - see Holland Backup main config-docs, defaults to nil
 
-## backupsets.rb:
+### backupsets.rb:
 
 * `node['hollandbackup']['backupsets']` - A list of backupsets
 
-Usage
-=====
+## Usage
 
 1. include `recipe[hollandbackup]` in a run list
 2. include `recipe[hollandbackup::mysqldump]`
 3. include `recipe[hollandbackup::main]`
 4. include `recipe[hollandbackup::backupsets]`
 5. tweak the attributes via attributes/default.rb
-    --- OR ---
-    override the attribute on a higher level (http://wiki.opscode.com/display/chef/Attributes#Attributes-AttributesPrecedence)
+--- OR ---
+[override the attribute on a higher level](http://wiki.opscode.com/display/chef/Attributes#Attributes-AttributesPrecedence)
 
-References
-==========
+## References
 
 * [Holland Backup home page] (http://hollandbackup.org)
 * [Holland Backup installation] (http://wiki.hollandbackup.org/Installation)
 * [Holland Backup configuration] (http://docs.hollandbackup.org/config.html)
 
-License and Authors
-===================
+## License and Authors
+
+Author: David Joos <development@davidjoos.com>
+Copyright: 2016, David Joos
 
 Author: David Joos <david.joos@escapestudios.com>
 Author: Escape Studios Development <dev@escapestudios.com>
-Copyright: 2012-2014, Escape Studios
+Copyright: 2012-2015, Escape Studios
 
 Unless otherwise noted, all files are released under the MIT license,
 possible exceptions will contain licensing information in them.
