@@ -1,6 +1,6 @@
 name 'hollandbackup'
 maintainer 'David Joos'
-maintainer_email 'david.joos@escapestudios.com'
+maintainer_email 'development@davidjoos.com'
 license 'MIT'
 description 'Installs/Configures hollandbackup'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
@@ -9,6 +9,9 @@ version '0.2.2'
 %w(debian ubuntu centos redhat).each do |os|
   supports os
 end
+
+source_url 'https://github.com/djoos-cookbooks/hollandbackup' if respond_to?(:source_url)
+issues_url 'https://github.com/djoos-cookbooks/hollandbackup/issues' if respond_to?(:issues_url)
 
 depends 'yum-epel'
 depends 'apt'

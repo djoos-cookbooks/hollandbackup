@@ -2,7 +2,7 @@
 # Cookbook Name:: hollandbackup
 # Recipe:: mysqldump
 #
-# Copyright 2012-2014, Escape Studios
+# Copyright (c) 2016, David Joos
 #
 
 include_recipe 'mysql::client'
